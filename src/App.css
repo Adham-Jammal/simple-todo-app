@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+  transition: width none;
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  color: black;
+  background-color: #d4418e;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+}
+#root{
+  padding: 10px;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.done {
+  text-decoration: line-through;
+}
+.mainSection {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 30px 15px;
+  border-radius: 4px;
+  margin: 0 auto;
+  min-height: 90vh;
+}
+.mainSection .taskInput {
+  display: block;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.mainSection .taskInput:focus {
+  border-color: #000 ;
+  outline: none;
+}
+.mainSection ul{
+  list-style: none;
+  max-height: 510px;
+  overflow-y: scroll;
+}
+.mainSection ul::-webkit-scrollbar {
+  width: .5rem;
+}
+
+.mainSection ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mainSection ul::-webkit-scrollbar-thumb {
+  background-color: #d4418e;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+}
+.mainSection ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mainSection ul li .content {
+  display: flex;
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+.mainSection .filters {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainSection .filters button {
+  cursor: pointer;
+  background: transparent;
+  color: #d4418e;
+  margin: 0 10px;
+}
+.mainSection .filters button.active-filter{
+  font-weight: bold;
+}
+.mainSection .cleanDoneTasks {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: #d4418e;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+.mainSection .deleteTask{
+  display: none;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+li:hover .deleteTask {
+  display: block;
+}
+.deleteTask:hover , .mainSection .cleanDoneTasks:hover{
+  transform: scale(1.05);
+}
+.tasksCounter{
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  font-size: 1.4rem;
+}
+.input-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.input-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.input-container input:checked ~ .checkmark {
+  background-color: #d4418e;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.input-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.input-container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+@media(max-width : 500px){
+  .mainSection .taskInput{
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .mainSection ul{
+    max-height: 470px;
+  }
+  .mainSection .filters{
+    bottom: 55px;
+    right: 15px;
+    justify-content: flex-end;
+  }
+  .tasksCounter{
+    bottom: 55px;
+    left: 20px;
+  }
+  .mainSection .cleanDoneTasks{
+    width: 90%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
