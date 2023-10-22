@@ -120,6 +120,9 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
   color: white;
 }
+.mainSection .delete-btn button{
+  background: transparent !important;
+}
 .mainSection .deleteTask{
   display: none;
   cursor: pointer;

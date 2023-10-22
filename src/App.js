@@ -59,6 +59,7 @@ const App = () => {
       return task.active;
     });
     setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify([...updatedTasks]));
   };
 
 
